@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="home.bjerckemedia.no" uploadOnCheckin="47e870db-0f03-4cb1-bbe0-b22a43c85640">
+    <serverData>
+      <paths name="home.bjerckemedia.no">
+        <serverdata>
+          <mappings>
+            <mapping deploy="dittdagspa" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="home.bjerckemedia.no" />
+  </component>
+</project>
