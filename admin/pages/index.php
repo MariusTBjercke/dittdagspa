@@ -1,3 +1,8 @@
+<?php
+session_start();
+include '../includes/functions.php';
+isLoggedIn();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +42,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Ditt DagSpa - Dashbord</a>
+                <a class="navbar-brand" href="index.php">Ditt DagSpa - Dashbord</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -50,42 +55,30 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>Marius Bjercke</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>I dag</em>
                                     </span>
                                 </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                <div>Velkommen til ditt nye kontrollpanel for Ditt DagSpa...</div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>Marius Bjercke</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>I går</em>
                                     </span>
                                 </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                <div>Du kan endre behandlinger som vises på forsiden ved å klikke på rediger fra venstre meny...</div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
+                                <strong>Les alle meldinger</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
@@ -103,7 +96,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Innstillinger</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logg ut</a>
+                        <li><a href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logg ut</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -116,24 +109,30 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashbord</a>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashbord</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Rediger
                                 <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Kategorier</a>
+                                    <a href="categories.php">Kategorier</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Behandlinger</a>
+                                    <a href="treatments.php">Behandlinger</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Kontaktskjema</a>
+                            <a href="forms.php"><i class="fa fa-edit fa-fw"></i> Kontaktskjema</a>
                         </li>
+                        <div class="prod_logo_wrapper">
+                            <li class="prod_logo">
+                                <span>Utviklet av:</span>
+                                <img src="../img/bjerckemedia_logo.png" width="150" />
+                            </li>
+                        </div>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -151,43 +150,21 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">2F6</div>
-                                    <div>New Comments!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
+                    <div class="panel panel-blue">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>New Tasks!</div>
+                                    <div class="huge">32</div>
+                                    <div>Behandlinger</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Rediger</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

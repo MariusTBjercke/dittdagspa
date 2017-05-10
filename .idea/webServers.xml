@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="c80ee467-4e7a-4140-98fb-24a8ab60b7d4" name="home.bjerckemedia.no" url="http://home.bjerckemedia.no">
+      <webServer id="c80ee467-4e7a-4140-98fb-24a8ab60b7d4" name="home.bjerckemedia.no (project level)" url="http://home.bjerckemedia.no">
         <fileTransfer host="home.bjerckemedia.no" port="21" rootFolder="/www">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" />

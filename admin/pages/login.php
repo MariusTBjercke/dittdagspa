@@ -1,3 +1,26 @@
+<?php
+session_start();
+include '../includes/functions.php';
+
+if (isset($_POST['submit'])) {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+  $result = $con->query($query);
+  $row = $result->fetch_array(MYSQLI_BOTH);
+  if ($row > 0) {
+      $_SESSION['d_logged_n'] = true;
+      $_SESSION['d_name_n'] = $row['name'];
+      $_SESSION['d_email_n'] = $row['email'];
+	  $loginError = 0;
+	  header("Location: index.php");
+  } else {
+      $loginError = 1;
+  }
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +32,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Logg inn - Ditt DagSpa</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,24 +62,28 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">Ditt DagSpa kontrollpanel</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" action="" method="POST">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="E-post adresse" name="email" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Passord" name="password" type="password" value="">
                                 </div>
+                                <?php if ($loginError == 1) {
+                                    echo '<b style="color: red;">Brukernavnet eller passordet var feil, vennlist prøv igjen.</b>';
+                                }
+                                ?>
                                 <div class="checkbox">
                                     <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                        <input name="remember" type="checkbox" value="Remember Me">Husk meg
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                <input type="submit" name="submit" value="Logg inn" class="btn btn-lg btn-success btn-block">
                             </fieldset>
                         </form>
                     </div>
